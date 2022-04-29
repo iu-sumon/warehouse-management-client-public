@@ -9,6 +9,7 @@ import ManageItem from './Components/ManageItem/ManageItem';
 import Login from './Components/Login/Login';
 import MyItem from './Components/MyItem/MyItem';
 import Footer from './Components/Footer/Footer';
+import SignUp from './Components/SignUp/SignUp';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/manage-item' element={<ManageItem />} />
         <Route path='/my-item' element={<MyItem />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp/>} />
 
       </Routes>
       <Footer></Footer>

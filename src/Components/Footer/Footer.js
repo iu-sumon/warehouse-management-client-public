@@ -20,7 +20,7 @@ const Footer = () => {
 
                             </div>
                             <button type="button" className="btn btn-primary">
-                                <i className="fa-solid fa-arrow-right"></i>
+                            <i className="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
@@ -143,14 +143,7 @@ const Footer = () => {
                             ><i className="fab fa-linkedin-in"></i
                             ></Link>
 
-                            <Link
-                                className="btn btn-primary btn-floating m-1"
-
-                                style={{ backgroundColor: "#333333" }}
-                                to="#!"
-                                role="button"
-                            ><i className="fab fa-github"></i
-                            ></Link>
+                             
                         </section>
 
 
