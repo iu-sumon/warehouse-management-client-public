@@ -1,49 +1,103 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 import './Login.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [signInWithEmailAndPassword, user, loading, signInError] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
+
+    const navigate = useNavigate();
+
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate('/')
+    }
+
+    let getError;
+    
+    if (signInError || resetError) {
+        getError = <p>Error:{signInError?.message} {resetError?.message}</p>
+    }
+  
+    if (getError) {
+        toast(getError)
+    }
+
+
+    const handleLogin = async (event) => {
+        event.preventDefault()
+        await signInWithEmailAndPassword(email, password)
+    }
+
+
+    const handleResetPassword = async () => {
+
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Thanks for your request.Please check your email address');
+        }
+        else {
+            toast('Please send your email address')
+        }
+
+    }
+
     return (
-        <section class="gradient-custom">
-            <h1 className='pt-5 text-white'>Hello ! Welcome back.</h1>
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style={{ borderRadius: "1rem" }}>
-                            <div class="card-body p-5 text-center">
+        <section className="gradient-custom">
+            <h1 className='pt-5 text-white fs-3'>Hello ! Welcome back.</h1>
+            <div className="container py-5 h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div className="card bg-dark text-white" style={{ borderRadius: "1rem" }}>
+                            <div className="card-body text-center">
 
-                                <div class="mb-md-2 mt-md-4 pb-5">
+                                <div className="mb-md-2 mt-md-4 pb-3">
 
-                                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                    <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                                    <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                                    <p className="text-white-50 ">Please enter your login and password!</p>
 
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">Email</label>
-                                    </div>
+                                    <form onSubmit={handleLogin}>
+                                        <div className="form-outline form-white mb-4">
+                                            <input onBlur={(e) => setEmail(e.target.value)} type="email" id="typeEmailX" className="form-control form-control-lg" required />
+                                            <label className="form-label" for="typeEmailX">Email</label>
+                                        </div>
 
-                                    <div class="form-outline form-white mb-3">
-                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">Password</label>
-                                    </div>
+                                        <div className="form-outline form-white mb-3">
+                                            <input onBlur={(e) => setPassword(e.target.value)} type="password" id="typePasswordX" className="form-control form-control-lg" required />
+                                            <label className="form-label" for="typePasswordX">Password</label>
+                                        </div>
 
-                                    <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                                        <p onClick={handleResetPassword} className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
 
-                                    <button class="btn btn-outline-light btn-lg px-5 mb-3" type="submit">Login</button>
-                                    <div>
-                                        <p class="mb-0">Don't have an account? <Link to="/signup" class="text-white-50 fw-bold">Sign Up</Link>
-                                        </p>
-                                    </div>
+                                        <button className="btn btn-outline-light btn-lg px-5 mb-3" type="submit">Login</button>
+                                        <div>
+                                            <p className="mb-0">Don't have an account? <Link to="/signup" className="text-white-50 fw-bold">Sign Up</Link>
+                                            </p>
+                                        </div>
 
+                                    </form>
 
                                 </div>
                                 <hr />
-                                <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                    <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                    <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                    <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                                <div className="d-flex justify-content-center text-center mt-2 pt-1">
+                                    <a href="#!" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#!" className="text-white"><i className="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                    <a href="#!" className="text-white"><i className="fab fa-google fa-lg"></i></a>
                                 </div>
 
-
+                                <ToastContainer></ToastContainer>
                             </div>
                         </div>
                     </div>
