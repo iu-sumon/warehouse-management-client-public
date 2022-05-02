@@ -26,11 +26,11 @@ const Login = () => {
     }
 
     let getError;
-    
+
     if (signInError || resetError) {
         getError = <p>Error:{signInError?.message} {resetError?.message}</p>
     }
-  
+
     if (getError) {
         toast(getError)
     }
@@ -92,9 +92,25 @@ const Login = () => {
                                 </div>
                                 <hr />
                                 <div className="d-flex justify-content-center text-center mt-2 pt-1">
-                                    <a href="#!" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>
-                                    <a href="#!" className="text-white"><i className="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                    <a href="#!" className="text-white"><i className="fab fa-google fa-lg"></i></a>
+                                    <div className="mb-3">
+                                        
+                                        <button type="button" className="btn btn-primary btn-floating mx-1">
+                                            <i className="fab fa-facebook-f"></i>
+                                        </button>
+
+                                        <button type="button" className="btn btn-primary btn-floating mx-1">
+                                            <i className="fab fa-google"></i>
+                                        </button>
+
+                                        <button type="button" className="btn btn-primary btn-floating mx-1">
+                                            <i className="fab fa-twitter"></i>
+                                        </button>
+
+                                        <button type="button" className="btn btn-primary btn-floating mx-1">
+                                            <i className="fab fa-github"></i>
+                                        </button>
+                                    </div>
+
                                 </div>
 
                                 <ToastContainer></ToastContainer>

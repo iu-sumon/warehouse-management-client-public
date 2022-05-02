@@ -4,7 +4,7 @@ import nPhoto from '../../images/others/notfound.PNG'
 const NotFound = () => {
     return (
         <div>
-            <div style={{ backgroundColor: 'black' }}>
+            <div  className='vh-100' style={{ backgroundColor: 'black' ,paddingTop:"200px" }}>
 
                 <div>
                     <img className='w-50' src={nPhoto} alt="" />
@@ -13,9 +13,7 @@ const NotFound = () => {
                 <div>
                     <Link class="btn btn-outline-light" to='/'>Home Page</Link>
                 </div>
-                 <div>
-                     <hr/>
-                 </div>
+                 
             </div>
            
         </div>
