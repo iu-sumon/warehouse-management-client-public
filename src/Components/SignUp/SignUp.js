@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialLink from '../SocialLink/SocialLink';
 
 
 const SignUp = () => {
@@ -31,13 +32,21 @@ const SignUp = () => {
 
 
 
-    let getError;
-    if (createError || updatingError) {
-        getError = <p>Error:{createError?.message} {updatingError?.message}</p>
+    let getCreateError;
+    let getUpdatingError;
+
+    if (createError) {
+        getCreateError = <p>Error:{createError?.message}</p>
+    }
+    if (updatingError) {
+        getUpdatingError = <p>Error:{updatingError?.message}</p>
     }
 
-    if (getError) {
-        toast(getError)
+    if (getUpdatingError) {
+        toast(getUpdatingError)
+    }
+    if (getCreateError) {
+        toast(getCreateError)
     }
 
 
@@ -108,29 +117,7 @@ const SignUp = () => {
                                     </form>
 
                                 </div>
-                                <hr />
-                                <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                                    <div className="mb-3">
-
-                                        <button type="button" className="btn btn-primary btn-floating mx-1">
-                                            <i className="fab fa-facebook-f"></i>
-                                        </button>
-
-                                        <button type="button" className="btn btn-primary btn-floating mx-1">
-                                            <i className="fab fa-google"></i>
-                                        </button>
-
-                                        <button type="button" className="btn btn-primary btn-floating mx-1">
-                                            <i className="fab fa-twitter"></i>
-                                        </button>
-
-                                        <button type="button" className="btn btn-primary btn-floating mx-1">
-                                            <i className="fab fa-github"></i>
-                                        </button>
-                                    </div>
-
-                                </div>
-
+                                <SocialLink></SocialLink>
                                 <ToastContainer></ToastContainer>
                             </div>
                         </div>
