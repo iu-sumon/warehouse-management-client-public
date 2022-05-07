@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import tipPhoto from '../../images/others/photo.PNG'
-import './TipsSection.css'
+ 
 const TipsSection = () => {
     return (
         <div>
@@ -15,10 +15,10 @@ const TipsSection = () => {
             </div>
 
             <div className='text-white py-5' style={{ backgroundColor: "#01838c" }}>
-                <div className='d-flex  justify-content-around align-content-center'>
+                <div className='row row-cols-1 row-cols-md-2 g-4'>
 
                     <div>
-                        <img src={tipPhoto} alt="" />
+                        <img style={{width:"300px",height:"300px"}} src={tipPhoto} alt="" />
                     </div>
 
 
