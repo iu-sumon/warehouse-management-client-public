@@ -25,15 +25,18 @@ const Header = () => {
                         </Nav>
 
                         <Nav>
-                            <CustomLink className='text-decoration-none me-3' to='/add-item'>Add Item</CustomLink>
-                            <CustomLink className='text-decoration-none me-3' to='/manage-item'>Manage Item</CustomLink>
-                            <CustomLink className='text-decoration-none me-3' to='/my-item'>My Item</CustomLink>
+                            {
+                                user && <> <CustomLink className='text-decoration-none me-3' to='/add-item'>Add Item</CustomLink>
+                                    <CustomLink className='text-decoration-none me-3' to='/manage-item'>Manage Item</CustomLink>
+                                    <CustomLink className='text-decoration-none me-3' to='/my-item'>My Item</CustomLink>
+                                </>
+                            }
                             <CustomLink className='text-decoration-none me-3' to='/blogs'>Blogs</CustomLink>
                             {user ?
 
-                                <CustomLink onClick={() => signOut(auth)}  className='text-decoration-none' to='/Login'>SignOut</CustomLink> 
+                                <CustomLink onClick={() => signOut(auth)} className='text-decoration-none' to='/Login'>SignOut</CustomLink>
                                 :
-                                <CustomLink className='text-decoration-none' to='/Login'>Login</CustomLink>}
+                                <CustomLink className='text-decoration-none' to='/login'>Login</CustomLink>}
 
 
                         </Nav>

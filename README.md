@@ -3,7 +3,7 @@
 This is my project live link [TechDen WareHouse](https://electronics-store-client.web.app/).
 
 ## Short Description
-This is a simple warehouse website. user can easy to handle it .and also manage it. This site has been implemented login and sign up page for user authentication. thats why this site is secure for valid user. Individual user can se his/her personal item .that was added he/she.This site implemented by using latest technologies .like react,firebase,mongodb,node.js,express etc.
+This is a simple warehouse website. user can easy to handle it .and also manage it. This site has been implemented login and sign up page for user authentication. thats why this site is secure for valid user. Individual user can see his/her personal item .that was added he/she.This site implemented by using latest technologies .like react,firebase,mongodb,node.js,express etc.
 
 ## Technologies
 ***

@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
@@ -29,6 +30,29 @@ const MyItem = () => {
             })
     }, [email])
 
+    const handleDeleteItem = id => {
+
+        const proceed = window.confirm('Are you sure?')
+
+        if (proceed) {
+
+            const url = `https://safe-everglades-94363.herokuapp.com/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remaining = items.filter(item => item._id !== id)
+
+                    setItems(remaining)
+                    toast('Deleted Successfully!')
+
+                })
+
+
+        }
+
+    }
 
     return (
         <div>
@@ -41,7 +65,7 @@ const MyItem = () => {
                             <th>PRICE</th>
                             <th>QUANTITY</th>
                             <th>SUPPLIER</th>
-
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody >
@@ -75,13 +99,20 @@ const MyItem = () => {
                                     <p class="fw-bold mb-1">{item.supplier}</p>
 
                                 </td>
+                                <td>
+                                    <button onClick={() => handleDeleteItem(item._id)} type="button" class="btn btn-dark btn-sm rounded-pill">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+
+
                             </tr>
                             )
                         }
 
                     </tbody>
                 </table>
-
+                <ToastContainer></ToastContainer>
 
             </div>
         </div>
