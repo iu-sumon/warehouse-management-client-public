@@ -12,14 +12,14 @@ const ManageItem = () => {
 
         if (proceed) {
 
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://safe-everglades-94363.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     const remaining = items.filter(item => item._id !== id)
-                 
+
                     setItems(remaining)
                     toast('Deleted Successfully!')
 
@@ -31,9 +31,9 @@ const ManageItem = () => {
     }
     return (
         <div>
-            <div  class='py-5'>
+            <div class='py-5'>
                 <Link class='btn btn-dark px-5 rounded-pill mb-3' to="/add-item">ADD NEW ITEM</Link>
-                <table  class="table align-middle mb-0 bg-white table-responsive " >
+                <table class="table align-middle mb-0 bg-white table-responsive " >
                     <thead class="fw-bold gradient-custom text-white shadow">
                         <tr>
                             <th>ITEM NAME</th>
@@ -45,11 +45,11 @@ const ManageItem = () => {
                     </thead>
                     <tbody >
                         {
-                            items.map(item => <tr style={{backgroundColor:"#013C" ,color:"white"}}  key={item._id}>
+                            items.map(item => <tr style={{ backgroundColor: "#013C", color: "white" }} key={item._id}>
                                 <td>
                                     <div class="d-flex   align-items-center">
-                                        <img 
-                                        class='rounded-pill'
+                                        <img
+                                            class='rounded-pill'
                                             src={item.img}
                                             alt=""
                                             style={{ width: "45px", height: "45px" }}

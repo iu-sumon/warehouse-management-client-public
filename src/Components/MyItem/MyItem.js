@@ -20,7 +20,7 @@ const MyItem = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/myItems?email=${email}`
+        const url = `https://safe-everglades-94363.herokuapp.com/myItems?email=${email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

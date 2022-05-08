@@ -28,7 +28,7 @@ const AddItem = () => {
         event.preventDefault();
         const addItem = { name, email, img, price, quantity, sold, description, supplier }
 
-        fetch(`http://localhost:5000/items`, {
+        fetch(`https://safe-everglades-94363.herokuapp.com/items`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

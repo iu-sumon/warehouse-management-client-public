@@ -8,7 +8,7 @@ const ItemDetails = () => {
     const { id } = useParams()
     const [item, setItem] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory/${id}`)
+        fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [id])
@@ -20,7 +20,7 @@ const ItemDetails = () => {
 
         item.quantity = parseInt(item.quantity) - 1;
 
-        fetch(`http://localhost:5000/inventory/${id}`, {
+        fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +29,7 @@ const ItemDetails = () => {
         })
             .then(res => res.json())
             .then(result => {
-                fetch(`http://localhost:5000/inventory/${id}`)
+                fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`)
                     .then(res => res.json())
                     .then(data => setItem(data))
             })
@@ -40,10 +40,10 @@ const ItemDetails = () => {
 
         event.preventDefault();
         const itemQuantity = event.target.quantity.value;
-        
+
         item.quantity = parseInt(item.quantity) + parseInt(itemQuantity);
 
-        fetch(`http://localhost:5000/inventory/${id}`, {
+        fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const ItemDetails = () => {
         })
             .then(res => res.json())
             .then(result => {
-                fetch(`http://localhost:5000/inventory/${id}`)
+                fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`)
                     .then(res => res.json())
                     .then(data => setItem(data))
             })
@@ -121,7 +121,7 @@ const ItemDetails = () => {
                         aria-describedby="button-addon2"
                     />
 
-                    <button  className="btn btn-dark rounded-pill px-3" type="submit" id="button-addon2" data-mdb-ripple-color="dark">
+                    <button className="btn btn-dark rounded-pill px-3" type="submit" id="button-addon2" data-mdb-ripple-color="dark">
                         Add Quantity
                     </button>
 
