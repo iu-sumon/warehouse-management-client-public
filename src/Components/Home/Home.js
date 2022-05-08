@@ -2,11 +2,13 @@ import React from 'react';
 import ReactCarousel from '../ReactCarousel/ReactCarousel';
 import bPhoto from '../../images/banner/banner.webp'
 import './Home.css'
-import Items from '../Items/Items';
+ 
 import Services from '../Services/Services';
 import AllBrand from '../AllBrand/AllBrand';
 import TipsSection from '../TipsSection/TipsSection';
 import WareHouseBlogs from '../WareHouseBlogs/WareHouseBlogs';
+import HomeCart from '../HomeCart/HomeCart';
+ 
 
 
 const Home = () => {
@@ -26,7 +28,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <Items></Items>
+            <HomeCart></HomeCart>
             <TipsSection></TipsSection>
             <WareHouseBlogs></WareHouseBlogs>
             <hr />

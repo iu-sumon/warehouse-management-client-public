@@ -12,13 +12,15 @@ import Footer from './Components/Footer/Footer';
 import SignUp from './Components/SignUp/SignUp';
 import Blogs from './Components/Blogs/Blogs';
 import NotFound from './Components/NotFound/NotFound';
- 
+import RequireAuth from './Components/RequireAuth/RequireAuth';
+import ItemDetails from './Components/ItemDetails/ItemDetails';
+
 
 function App() {
   return (
     <div className="App">
-  <Header></Header>
- 
+      <Header></Header>
+
       <Routes>
 
         <Route path='/' element={<Home />} />
@@ -26,10 +28,21 @@ function App() {
         <Route path='/add-item' element={<AddItem />} />
         <Route path='/manage-item' element={<ManageItem />} />
         <Route path='/my-item' element={<MyItem />} />
-        <Route path='/blogs' element={<Blogs/>} />
+        <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<SignUp/>} />
-        <Route path='*' element={<NotFound/>} />
+        <Route path='/signup' element={<SignUp />} />
+
+        <Route path='/inventory/:id' element={
+          
+          <RequireAuth>
+            <ItemDetails />
+          </RequireAuth>
+
+        } />
+
+
+
+        <Route path='*' element={<NotFound />} />
 
       </Routes>
       <Footer></Footer>

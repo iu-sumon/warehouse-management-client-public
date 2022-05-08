@@ -3,8 +3,6 @@ import blog1 from '../../images/blogs/1_300x300.jpg'
 import blog2 from '../../images/blogs/2_300x300.jpg'
 import blog3 from '../../images/blogs/3_300x300.jpg'
 import blog4 from '../../images/blogs/4_300x300.jpg'
-// import blog5 from '../../images/blogs/5_300x300.jpg'
-// import blog6 from '../../images/blogs/6_300x300.jpg'
 
 const WareHouseBlogs = () => {
     return (

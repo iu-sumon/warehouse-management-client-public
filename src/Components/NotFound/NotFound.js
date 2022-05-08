@@ -11,7 +11,7 @@ const NotFound = () => {
                 </div>
 
                 <div>
-                    <Link class="btn btn-outline-light" to='/'>Home Page</Link>
+                    <Link className="btn btn-outline-light" to='/'>Home Page</Link>
                 </div>
                  
             </div>
