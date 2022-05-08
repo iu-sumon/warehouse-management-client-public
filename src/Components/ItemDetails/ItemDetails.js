@@ -37,8 +37,10 @@ const ItemDetails = () => {
     }
 
     const handleUpdatedQuantity = (event) => {
+
         event.preventDefault();
         const itemQuantity = event.target.quantity.value;
+        
         item.quantity = parseInt(item.quantity) + parseInt(itemQuantity);
 
         fetch(`http://localhost:5000/inventory/${id}`, {
@@ -108,10 +110,10 @@ const ItemDetails = () => {
 
                 </div>
 
-                <div class="input-group mb-3 w-75 mx-auto">
+                <form onSubmit={handleUpdatedQuantity} class="input-group mb-3 w-75 mx-auto">
 
                     <input
-                        type="text"
+                        type="number"
                         name='quantity'
                         className="form-control rounded-pill"
                         placeholder="Please add quantity"
@@ -119,11 +121,11 @@ const ItemDetails = () => {
                         aria-describedby="button-addon2"
                     />
 
-                    <button onClick={handleUpdatedQuantity} className="btn btn-dark rounded-pill px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                    <button  className="btn btn-dark rounded-pill px-3" type="submit" id="button-addon2" data-mdb-ripple-color="dark">
                         Add Quantity
                     </button>
 
-                </div>
+                </form>
 
             </section>
 
