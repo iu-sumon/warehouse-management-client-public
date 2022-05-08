@@ -13,7 +13,7 @@ const Header = () => {
         <div className='color1'>
             <Navbar collapseOnSelect expand="lg" variant="dark">
                 <Container>
-                    <Nav.Link className='text-white fs-4' as={Link} to='/'>TecDen WareHouse</Nav.Link>
+                    <Nav.Link className='text-white fs-4' as={Link} to='/'>TechDen WareHouse</Nav.Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
 

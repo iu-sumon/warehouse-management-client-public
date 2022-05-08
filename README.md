@@ -1,6 +1,6 @@
- # MY DOCTOR
+ # TechDen WareHouse
 
-This is my project live link [TechDen Warehouse]().
+This is my project live link [TechDen WareHouse]().
 
 ## General Info
 
