@@ -19,7 +19,7 @@ const ManageItem = () => {
                 .then(res => res.json())
                 .then(data => {
                     const remaining = items.filter(item => item._id !== id)
-                    console.log(remaining);
+                 
                     setItems(remaining)
                     toast('Deleted Successfully!')
 
@@ -31,10 +31,10 @@ const ManageItem = () => {
     }
     return (
         <div>
-            <div className='py-5'>
-                <Link className='btn btn-dark px-5 rounded-pill mb-3' to="/add-item">ADD NEW ITEM</Link>
-                <table class="table align-middle mb-0 bg-white">
-                    <thead class="bg-info text-white fw-bold">
+            <div  class='py-5'>
+                <Link class='btn btn-dark px-5 rounded-pill mb-3' to="/add-item">ADD NEW ITEM</Link>
+                <table  class="table align-middle mb-0 bg-white table-responsive " >
+                    <thead class="fw-bold gradient-custom text-white shadow">
                         <tr>
                             <th>ITEM NAME</th>
                             <th>PRICE</th>
@@ -43,12 +43,13 @@ const ManageItem = () => {
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
-                            items.map(item => <tr>
+                            items.map(item => <tr style={{backgroundColor:"#013C" ,color:"white"}}  key={item._id}>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <img
+                                    <div class="d-flex   align-items-center">
+                                        <img 
+                                        class='rounded-pill'
                                             src={item.img}
                                             alt=""
                                             style={{ width: "45px", height: "45px" }}

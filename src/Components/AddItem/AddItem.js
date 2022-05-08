@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 
 
@@ -13,9 +16,17 @@ const AddItem = () => {
     const [sold, setSold] = useState('')
     const [supplier, setSupplier] = useState('')
 
-    const handleAddItem = event => {
+    const [user, loading] = useAuthState(auth);
+    let email;
+    if (loading) {
+        return <Loading></Loading>
+    }
+    email = user.email;
+    console.log(email);
+    const handleAddItem = async (event) => {
+
         event.preventDefault();
-        const addItem = { name, img, price, quantity, sold, description, supplier }
+        const addItem = { name, email, img, price, quantity, sold, description, supplier }
 
         fetch(`http://localhost:5000/items`, {
             method: 'POST',
