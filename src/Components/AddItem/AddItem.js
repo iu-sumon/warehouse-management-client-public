@@ -29,7 +29,7 @@ const AddItem = () => {
                 toast('Item Added Successfully')
                 console.log(result);
             })
-
+        event.target.reset()
     }
 
 
@@ -54,33 +54,33 @@ const AddItem = () => {
 
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example17">Item Name</label>
-                                                    <input onBlur={(e) => setName(e.target.value)} type="name" id="form2Example17" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setName(e.target.value)} type="name" id="form2Example17" className="form-control form-control-lg" required />
 
                                                 </div>
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example17">Item Description</label>
-                                                    <input onBlur={(e) => setDescription(e.target.value)} type="description" id="form2Example17" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setDescription(e.target.value)} type="description" id="form2Example17" className="form-control form-control-lg" required />
                                                 </div>
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example17">Item Image URL</label>
-                                                    <input onBlur={(e) => setImg(e.target.value)} type="img" id="form2Example17" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setImg(e.target.value)} type="img" id="form2Example17" className="form-control form-control-lg" required />
                                                 </div>
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example17">Item Price</label>
-                                                    <input onBlur={(e) => setPrice(e.target.value)} type="price" id="form2Example17" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setPrice(e.target.value)} type="price" id="form2Example17" className="form-control form-control-lg" required />
                                                 </div>
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example17">Item Quantity</label>
-                                                    <input onBlur={(e) => setQuantity(e.target.value)} type="quantity" id="form2Example17" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setQuantity(e.target.value)} type="quantity" id="form2Example17" className="form-control form-control-lg" required />
                                                 </div>
 
                                                 <div className="form-outline">
                                                     <label className="form-label fw-bold" for="form2Example27">Item Sold</label>
-                                                    <input onBlur={(e) => setSold(e.target.value)} type="sold" id="form2Example27" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setSold(e.target.value)} type="sold" id="form2Example27" className="form-control form-control-lg" required />
                                                 </div>
                                                 <div className="form-outline mb-4">
                                                     <label className="form-label fw-bold" for="form2Example27">Item Supplier</label>
-                                                    <input onBlur={(e) => setSupplier(e.target.value)} type="supplier" id="form2Example27" className="form-control form-control-lg" required/>
+                                                    <input onBlur={(e) => setSupplier(e.target.value)} type="supplier" id="form2Example27" className="form-control form-control-lg" required />
                                                 </div>
 
                                                 <div className="pt-1 mb-4">
@@ -90,7 +90,7 @@ const AddItem = () => {
 
 
                                             </form>
-                                             <ToastContainer></ToastContainer>
+                                            <ToastContainer></ToastContainer>
                                         </div>
                                     </div>
                                 </div>

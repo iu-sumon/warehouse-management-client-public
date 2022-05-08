@@ -12,7 +12,7 @@ useEffect(()=>{
     })
 },[])
 
-    return [items]
+    return [items,setItems]
 };
 
 export default useItems;
