@@ -2,7 +2,8 @@
 
 This is my project live link [TechDen WareHouse](https://electronics-store-client.web.app/).
 
-## General Info
+## Short Description
+This is a simple warehouse website. user can easy to handle it .and also manage it. This site has been implemented login and sign up page for user authentication. thats why this site is secure for valid user. Individual user can se his/her personal item .that was added he/she.This site implemented by using latest technologies .like react,firebase,mongodb,node.js,express etc.
 
 ## Technologies
 ***
@@ -17,7 +18,7 @@ A list of technologies used within the project:
 * [Express js](https://expressjs.com/)
 * [Firebase Authentication](https://firebase.google.com/?gclid=CjwKCAjw9e6SBhB2EiwA5myr9o1Uvgd818pxxFWpzUC7u0R0h8Ie6ryVOfSp_gtJM8_zohSlM4XI1BoCeQ8QAvD_BwE&gclsrc=aw.ds)
 
- ## Features 
+ ## Features and Functionality
 
 * This is a Tech Den warehouse website.This site can provide many warehouse items . 
 * This is a simple warehouse website .User can update ,delete and mange  items in this site easily .

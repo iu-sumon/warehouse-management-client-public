@@ -27,7 +27,7 @@ const Item = ({ item }) => {
                     </div>
                    
                     
-                    <Link to='/' className='btn btn-dark w-100'>Update</Link>
+                    <Link to='/' className='btn btn-dark w-100 rounded-pill'>Update</Link>
 
                 </div>
             </div>

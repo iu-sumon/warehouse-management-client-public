@@ -20,7 +20,7 @@ const ReactCarousel = () => {
                     <Carousel.Caption>
                         <h3>iPhone 13 Pro Max</h3>
                         <p>Your new superpower</p>
-                        <a className='btn btn-warning' href="https://www.apple.com/iphone/" target="Blank">Explore</a>
+                        <a className='btn btn-warning rounded-pill px-5' href="https://www.apple.com/iphone/" target="Blank">Explore</a>
                     </Carousel.Caption>
                 </Carousel.Item>
 
@@ -34,7 +34,7 @@ const ReactCarousel = () => {
                     <Carousel.Caption>
                         <h3>iPhone 13 Pro</h3>
                         <p>Love the power</p>
-                        <a className='btn btn-warning' href="https://www.apple.com/iphone/" target="Blank">Explore</a>
+                        <a className='btn btn-warning rounded-pill px-5' href="https://www.apple.com/iphone/" target="Blank">Explore</a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -50,7 +50,7 @@ const ReactCarousel = () => {
                             Heavy on features.
                             Light on price
                         </p>
-                        <a className='btn btn-warning' href="https://www.apple.com/watch/" target="Blank">Explore</a>
+                        <a className='btn btn-warning rounded-pill px-5' href="https://www.apple.com/watch/" target="Blank">Explore</a>
                     </Carousel.Caption>
                 </Carousel.Item>
 

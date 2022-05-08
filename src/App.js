@@ -25,17 +25,37 @@ function App() {
 
         <Route path='/' element={<Home />} />
         <Route path='/items' element={<Items />} />
-        <Route path='/add-item' element={<AddItem />} />
-        <Route path='/manage-item' element={<ManageItem />} />
+        <Route path='/add-item' element={
 
-        <Route path='/my-item' element={<MyItem />} />
-        
+          <RequireAuth>
+            <AddItem />
+          </RequireAuth>
+
+
+        } />
+        <Route path='/manage-item' element={
+          <RequireAuth>
+            <ManageItem />
+          </RequireAuth>
+
+
+        } />
+
+        <Route path='/my-item' element={
+          <RequireAuth>
+            <MyItem />
+          </RequireAuth>
+
+
+
+        } />
+
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
 
         <Route path='/inventory/:id' element={
-          
+
           <RequireAuth>
             <ItemDetails />
           </RequireAuth>
