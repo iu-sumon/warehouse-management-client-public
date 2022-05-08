@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ItemDetails = () => {
 
 
@@ -19,21 +20,27 @@ const ItemDetails = () => {
 
 
         item.quantity = parseInt(item.quantity) - 1;
+        if (item.quantity < 0) {
+            toast('Stock Out!')
+            return;
+        }
 
-        fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
-            .then(res => res.json())
-            .then(result => {
-                fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`)
-                    .then(res => res.json())
-                    .then(data => setItem(data))
+        else {
+            fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(item)
             })
+                .then(res => res.json())
+                .then(result => {
+                    fetch(`https://safe-everglades-94363.herokuapp.com/inventory/${id}`)
+                        .then(res => res.json())
+                        .then(data => setItem(data))
+                })
 
+        }
     }
 
     const handleUpdatedQuantity = (event) => {
@@ -126,7 +133,7 @@ const ItemDetails = () => {
                     </button>
 
                 </form>
-
+                <ToastContainer></ToastContainer>
             </section>
 
         </div>
